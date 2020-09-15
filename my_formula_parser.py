@@ -14,7 +14,7 @@ class Token:
         self.type = _token_type
 
     def __repr__(self):
-        return f'{self.type}: {self.value}'
+        return f'[{self.value}]'
 
 
 class Tokenizer:
@@ -95,6 +95,10 @@ class Tokenizer:
         self.letter_buffer = []
 
 
+def calc(expr: str):
+    tokens = Tokenizer(expr).result
+    print(tokens)
+
 if __name__ == '__main__':
     tests = [
         ["1 + 1", 2],
@@ -107,5 +111,4 @@ if __name__ == '__main__':
         ["-7 * -(6 / 3)", 14]
     ]
     for test in tests:
-        tokenizer = Tokenizer(test[0])
-        print(tokenizer.result)
+        calc(test[0])
