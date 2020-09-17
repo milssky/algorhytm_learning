@@ -8,31 +8,10 @@ MORSE_CODE = {'.-': 'A', '-...': 'B', '-.-.': 'C', '-..': 'D', '.': 'E', '..-.':
               '...-..-': '$', '.--.-.': '@', '...---...': 'SOS'}
 
 
+def decodeBitsAdvanced(bits):
+    # ToDo: Accept 0's and 1's, return dots, dashes and spaces
+    return bits.replace('111', '-').replace('000', ' ').replace('1', '.').replace('0', '')
 
-def decode_bits(bits):
-    """
-    intuitive
-    """
-    bits = bits.strip('0')
-    freq = min([len(s) for s in bits.split('1') + bits.split('0') if s])
-
-    return decode_morse(bits.replace(
-        '111' * freq, '-').replace(
-        '1' * freq, '.').replace(
-        '0000000' * freq, '   ').replace(
-        '000' * freq, ' ').replace(
-        '0' * freq, ''))
-
-
-
-def decode_morse(morse_code):
-    return ' '.join(
-        [''.join([MORSE_CODE[letter] for letter in word.split(' ')])
-         for word in morse_code.strip().split('   ')])
-
-
-if __name__ == '__main__':
-    bits = '1100110011001100000011000000111111001100111111001111110000000000000011001111110011111100111111000000110011001111110000001111110011001100000011'
-
-    morse = decode_bits(bits)
-    print(morse)
+def decodeMorse(morseCode):
+    # ToDo: Accept dots, dashes and spaces, return human-readable message
+    return morseCode.replace('.', 'E').replace('-', 'T').replace(' ', '')
