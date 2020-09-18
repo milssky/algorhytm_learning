@@ -1,3 +1,6 @@
+import numpy as np
+from scipy.cluster.vq import vq, kmeans, whiten
+
 MORSE_CODE = {'.-': 'A', '-...': 'B', '-.-.': 'C', '-..': 'D', '.': 'E', '..-.': 'F', '--.': 'G', '....': 'H',
               '..': 'I', '.---': 'J', '-.-': 'K', '.-..': 'L', '--': 'M', '-.': 'N', '---': 'O', '.--.': 'P',
               '--.-': 'Q', '.-.': 'R', '...': 'S', '-': 'T', '..-': 'U', '...-': 'V', '.--': 'W', '-..-': 'X',
@@ -15,3 +18,7 @@ def decodeBitsAdvanced(bits):
 def decodeMorse(morseCode):
     # ToDo: Accept dots, dashes and spaces, return human-readable message
     return morseCode.replace('.', 'E').replace('-', 'T').replace(' ', '')
+
+
+if __name__ == '__main__':
+    bits = '0000000011011010011100000110000001111110100111110011111100000000000111011111111011111011111000000101100011111100000111110011101100000100000'
