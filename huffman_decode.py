@@ -5,7 +5,7 @@ def huffman_decode(encoded, code):
         enc_ch += ch
         for dec_ch in code:
             if code.get(dec_ch) == enc_ch:
-                sx.append(dec_ch[0])
+                sx.append(dec_ch)
                 enc_ch = ""
                 break
 
@@ -17,7 +17,7 @@ if __name__ == '__main__':
     k, l = input().split()
     code = {}
     for i in range(int(k)):
-        code.update([input().split()])
+        code.update([input().split(': ')])
     encoded = input()
 
     print(huffman_decode(encoded, code))
